@@ -1,16 +1,22 @@
 package baseball;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class User {
 
-    public int inputNum() {
+    public List<Integer> inputNum() {
         System.out.print("숫자를 입력해주세요 : ");
         String input = readLine();
 
         Validator.validateNum(input);
 
-        return Integer.parseInt(input);
+        return Arrays.stream(input.split(""))
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
     }
 
     public int inputStartOrEnd() {
@@ -21,4 +27,5 @@ public class User {
 
         return Integer.parseInt(input);
     }
+    
 }

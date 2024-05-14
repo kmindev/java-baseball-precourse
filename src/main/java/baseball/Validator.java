@@ -1,12 +1,18 @@
 package baseball;
 
 public class Validator {
+    private static final char MIN = '1';
+    private static final char MAX = '9';
+    private static final int SIZE = 3;
+    private static final String START = "1";
+    private static final String END = "2";
+
     public static void validateNum(String input) {
         if (!isNumeric(input)) {
             throw new IllegalArgumentException("숫자만 입력할 수 있습니다.");
         }
 
-        if (input.length() != 3) {
+        if (input.length() != SIZE) {
             throw new IllegalArgumentException("3자리 수만 입력할 수 있습니다.");
         }
 
@@ -24,7 +30,7 @@ public class Validator {
             throw new IllegalArgumentException("숫자만 입력할 수 있습니다.");
         }
 
-        if (!input.equals("1") && !input.equals("2")) {
+        if (!input.equals(START) && !input.equals(END)) {
             throw new IllegalArgumentException("1(재시작) 또는 2(종료)만 입력할 수 있습니다.");
         }
     }
@@ -37,7 +43,7 @@ public class Validator {
 
     private static boolean isNumericInRange(String input) {
         for (char num : input.toCharArray()) {
-            if (num < '1' || num > '9') {
+            if (num < MIN || num > MAX) {
                 return false;
             }
         }
@@ -52,4 +58,5 @@ public class Validator {
             return false;
         }
     }
+
 }
