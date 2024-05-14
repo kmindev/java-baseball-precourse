@@ -17,7 +17,16 @@ public class Validator {
         if (!isUniqueNumber(input)) {
             throw new IllegalArgumentException("서로 다른 3자리를 수를 입력해야 합니다.");
         }
+    }
 
+    public static void validateStartOrRestart(String input) {
+        if (!isNumeric(input)) {
+            throw new IllegalArgumentException("숫자만 입력할 수 있습니다.");
+        }
+
+        if (!input.equals("1") && !input.equals("2")) {
+            throw new IllegalArgumentException("1(재시작) 또는 2(종료)만 입력할 수 있습니다.");
+        }
     }
 
     private static boolean isUniqueNumber(String input) {
@@ -33,16 +42,6 @@ public class Validator {
             }
         }
         return true;
-    }
-
-    public static void validateStartOrRestart(String input) {
-        if (!isNumeric(input)) {
-            throw new IllegalArgumentException("숫자만 입력할 수 있습니다.");
-        }
-
-        if (!input.equals("1") && !input.equals("2")) {
-            throw new IllegalArgumentException("1(재시작) 또는 2(종료)만 입력할 수 있습니다.");
-        }
     }
 
     private static boolean isNumeric(String input) {
