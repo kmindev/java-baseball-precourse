@@ -1,8 +1,8 @@
 package baseball;
 
 public class Validator {
-    private static final char MIN = '1';
-    private static final char MAX = '9';
+    private static final int MIN = 1;
+    private static final int MAX = 9;
     private static final int SIZE = 3;
     private static final String START = "1";
     private static final String END = "2";
@@ -44,7 +44,8 @@ public class Validator {
     }
 
     private static boolean isNumericInRange(String input) {
-        for (char num : input.toCharArray()) {
+        for (char numCh : input.toCharArray()) {
+            int num = Character.getNumericValue(numCh);
             if (num < MIN || num > MAX) {
                 return false;
             }
