@@ -29,9 +29,9 @@ public class BaseBallGame {
             is3Strike = referee.judge(userNum, computerNum);
         }
 
-        int restartOrEnd = user.inputStartOrEnd();
+        ReStartOrEnd restartOrEnd = user.inputStartOrEnd();
 
-        if (restartOrEnd == 1) {
+        if (restartOrEnd.isReStart()) {
             progress();
         }
     }

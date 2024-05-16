@@ -22,12 +22,6 @@ public class Validator {
         }
     }
 
-    public static void validateStartOrRestart(String input) {
-        if (!input.equals(RESTART) && !input.equals(END)) {
-            throw new IllegalArgumentException(ERROR_INVALID_RESTART_OR_END);
-        }
-    }
-
     private static boolean isUniqueNumber(String input) {
         return input.charAt(0) != input.charAt(1) &&
                 input.charAt(0) != input.charAt(2) &&

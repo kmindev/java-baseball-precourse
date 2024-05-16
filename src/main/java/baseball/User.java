@@ -21,13 +21,11 @@ public class User {
                 .collect(Collectors.toList());
     }
 
-    public int inputStartOrEnd() {
+    public ReStartOrEnd inputStartOrEnd() {
         System.out.println(RESTART_OR_END_INPUT_MESSAGE);
         String input = readLine();
 
-        Validator.validateStartOrRestart(input);
-
-        return Integer.parseInt(input);
+        return ReStartOrEnd.from(input);
     }
 
 }
