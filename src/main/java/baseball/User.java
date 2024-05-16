@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static baseball.Constant.NUM_INPUT_MESSAGE;
-import static baseball.Constant.START_OR_END_INPUT_MESSAGE;
+import static baseball.Constant.RESTART_OR_END_INPUT_MESSAGE;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class User {
@@ -22,7 +22,7 @@ public class User {
     }
 
     public int inputStartOrEnd() {
-        System.out.println(START_OR_END_INPUT_MESSAGE);
+        System.out.println(RESTART_OR_END_INPUT_MESSAGE);
         String input = readLine();
 
         Validator.validateStartOrRestart(input);

@@ -23,8 +23,8 @@ public class Validator {
     }
 
     public static void validateStartOrRestart(String input) {
-        if (!input.equals(START) && !input.equals(END)) {
-            throw new IllegalArgumentException(ERROR_INVALID_START_OR_END);
+        if (!input.equals(RESTART) && !input.equals(END)) {
+            throw new IllegalArgumentException(ERROR_INVALID_RESTART_OR_END);
         }
     }
 
