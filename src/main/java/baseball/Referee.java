@@ -1,27 +1,25 @@
 package baseball;
 
-import java.util.List;
-
 import static baseball.Constant.*;
 
 public class Referee {
 
     /**
-     * @param userNum
-     * @param computerNum
+     * @param userBalls
+     * @param computerBalls
      * @return 3스트라이크이면 true, 그 외에는 false를 반환한다.
      */
-    public boolean judge(List<Integer> userNum, List<Integer> computerNum) {
+    public boolean judge(Balls userBalls, Balls computerBalls) {
         int ballCount = 0;
         int strikeCount = 0;
 
         for (int i = 0; i < BALL_SIZE; i++) {
-            if (isStrike(userNum.get(i), computerNum.get(i))) {
+            if (isStrike(userBalls.getBalls().get(i), computerBalls.getBalls().get(i))) {
                 strikeCount++;
                 continue;
             }
 
-            if (isBall(userNum.get(i), computerNum)) {
+            if (isBall(userBalls.getBalls().get(i), computerBalls)) {
                 ballCount++;
             }
         }
@@ -54,9 +52,9 @@ public class Referee {
         System.out.println(result);
     }
 
-    private boolean isBall(int userNum, List<Integer> computerNums) {
-        for (int computeNum : computerNums) {
-            if (userNum == computeNum) {
+    private boolean isBall(int userBall, Balls computerBalls) {
+        for (int computeNum : computerBalls.getBalls()) {
+            if (userBall == computeNum) {
                 return true;
             }
         }
@@ -67,4 +65,5 @@ public class Referee {
     private boolean isStrike(int userNum, int computerNum) {
         return userNum == computerNum;
     }
+
 }

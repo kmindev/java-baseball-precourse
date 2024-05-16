@@ -1,7 +1,5 @@
 package baseball;
 
-import java.util.List;
-
 public class BaseBallGame {
     private static final Computer computer;
     private static final Referee referee;
@@ -18,15 +16,15 @@ public class BaseBallGame {
     }
 
     private static void progress() {
-        List<Integer> computerNum = computer.generateNumber();
-        System.out.println(computerNum);
+        Balls computerBalls = computer.generateNumber();
+        System.out.println(computerBalls);
 
         boolean is3Strike = false;
 
         while (!is3Strike) {
-            List<Integer> userNum = user.inputNum();
+            Balls userBalls = user.inputNum();
 
-            is3Strike = referee.judge(userNum, computerNum);
+            is3Strike = referee.judge(userBalls, computerBalls);
         }
 
         ReStartOrEnd restartOrEnd = user.inputStartOrEnd();

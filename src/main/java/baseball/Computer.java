@@ -9,17 +9,17 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class Computer {
 
-    public List<Integer> generateNumber() {
-        List<Integer> nums = new ArrayList<>();
+    public Balls generateNumber() {
+        List<Integer> balls = new ArrayList<>();
 
-        while (nums.size() != BALL_SIZE) {
+        while (balls.size() != BALL_SIZE) {
             int randomNum = pickNumberInRange(BALL_MIN, BALL_MAX); // n 부터 m 까지 랜덤 수 생성
 
-            if (!nums.contains(randomNum)) {
-                nums.add(randomNum);
+            if (!balls.contains(randomNum)) {
+                balls.add(randomNum);
             }
         }
 
-        return nums;
+        return Balls.from(balls);
     }
 }
