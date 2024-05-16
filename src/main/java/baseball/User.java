@@ -4,12 +4,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static baseball.Constant.NUM_INPUT_MESSAGE;
+import static baseball.Constant.START_OR_END_INPUT_MESSAGE;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class User {
 
     public List<Integer> inputNum() {
-        System.out.print("숫자를 입력해주세요 : ");
+        System.out.print(NUM_INPUT_MESSAGE);
         String input = readLine();
 
         Validator.validateNum(input);
@@ -20,12 +22,12 @@ public class User {
     }
 
     public int inputStartOrEnd() {
-        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        System.out.println(START_OR_END_INPUT_MESSAGE);
         String input = readLine();
 
         Validator.validateStartOrRestart(input);
 
         return Integer.parseInt(input);
     }
-    
+
 }

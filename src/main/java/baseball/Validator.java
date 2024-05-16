@@ -1,24 +1,15 @@
 package baseball;
 
-public class Validator {
-    private static final int MIN = 1;
-    private static final int MAX = 9;
-    private static final int SIZE = 3;
-    private static final String START = "1";
-    private static final String END = "2";
+import static baseball.Constant.*;
 
-    private static final String ERROR_NOT_NUMERIC = "숫자만 입력할 수 있습니다.";
-    private static final String ERROR_INVALID_LENGTH = SIZE + "자리 수만 입력할 수 있습니다.";
-    private static final String ERROR_OUT_OF_RANGE = MIN + " ~ " + MAX + " 숫자만 입력할 수 있습니다.";
-    private static final String ERROR_NOT_UNIQUE = "서로 다른 " + SIZE + "자리를 수를 입력해야 합니다.";
-    private static final String ERROR_INVALID_START_OR_END = "1(재시작) 또는 2(종료)만 입력할 수 있습니다.";
+public class Validator {
 
     public static void validateNum(String input) {
         if (!isNumeric(input)) {
             throw new IllegalArgumentException(ERROR_NOT_NUMERIC);
         }
 
-        if (input.length() != SIZE) {
+        if (input.length() != BALL_SIZE) {
             throw new IllegalArgumentException(ERROR_INVALID_LENGTH);
         }
 
@@ -46,7 +37,7 @@ public class Validator {
     private static boolean isNumericInRange(String input) {
         for (char numCh : input.toCharArray()) {
             int num = Character.getNumericValue(numCh);
-            if (num < MIN || num > MAX) {
+            if (num < BALL_MIN || num > BALL_MAX) {
                 return false;
             }
         }

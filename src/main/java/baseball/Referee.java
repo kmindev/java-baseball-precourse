@@ -2,9 +2,9 @@ package baseball;
 
 import java.util.List;
 
-public class Referee {
+import static baseball.Constant.*;
 
-    private static final int SIZE = 3;
+public class Referee {
 
     /**
      * @param userNum
@@ -15,7 +15,7 @@ public class Referee {
         int ballCount = 0;
         int strikeCount = 0;
 
-        for (int i = 0; i < SIZE; i++) {
+        for (int i = 0; i < BALL_SIZE; i++) {
             if (isStrike(userNum.get(i), computerNum.get(i))) {
                 strikeCount++;
                 continue;
@@ -28,25 +28,26 @@ public class Referee {
 
         printResult(ballCount, strikeCount);
 
-        return strikeCount == SIZE;
+        return strikeCount == BALL_SIZE;
     }
 
     private void printResult(int ballCount, int strikeCount) {
         StringBuilder result = new StringBuilder();
 
         if (ballCount == 0 && strikeCount == 0) {
-            result.append("낫싱");
+            result.append(NOTHING_MESSAGE);
         } else {
             if (ballCount > 0) {
-                result.append(String.format("%d볼 ", ballCount));
+                result.append(ballCount).append(BALL_MESSAGE).append(" ");
             }
 
             if (strikeCount > 0) {
-                result.append(String.format("%d스트라이크", strikeCount));
+                result.append(strikeCount).append(STRIKE_MESSAGE);
             }
 
-            if (strikeCount == SIZE) {
-                result.append("\n3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+            if (strikeCount == BALL_SIZE) {
+
+                result.append("\n").append(SUCCESS_MESSAGE);
             }
         }
 
